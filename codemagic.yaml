@@ -13,7 +13,7 @@ workflows:
     scripts:
       - name: Install dependencies
         script: npm install --legacy-peer-deps
-      - name: Expo prebuild iOS (no install)
+      - name: Expo prebuild iOS
         script: npx expo prebuild --platform ios --clean --no-install
       - name: Install dependencies after prebuild
         script: npm install --legacy-peer-deps
@@ -21,11 +21,15 @@ workflows:
         script: |
           cd ios
           pod install
-      - name: Build iOS IPA
+      - name: Find workspace and build IPA
         script: |
+          WORKSPACE=$(find ios -name "*.xcworkspace" -maxdepth 2 | head -1)
+          SCHEME=$(find ios -name "*.xcodeproj" -maxdepth 2 | head -1 | xargs basename | sed 's/.xcodeproj//')
+          echo "Workspace: $WORKSPACE"
+          echo "Scheme: $SCHEME"
           xcode-project build-ipa \
-            --workspace ios/DoAbleIndia.xcworkspace \
-            --scheme DoAbleIndia
+            --workspace "$WORKSPACE" \
+            --scheme "$SCHEME"
     artifacts:
       - build/ios/ipa/*.ipa
       - /tmp/xcodebuild_logs/*.log
