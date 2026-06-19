@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>237759117673-s9ujpmq5o951otqn207i8b3bnbpiof46.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.237759117673-s9ujpmq5o951otqn207i8b3bnbpiof46</string>
+	<key>ANDROID_CLIENT_ID</key>
+	<string>237759117673-1dg57uvdnpei10jp4rddvi9plragtn0q.apps.googleusercontent.com</string>
+	<key>API_KEY</key>
+	<string>AIzaSyBOW8XUGf6Cb6bRwfLupeHUgVjLzJHSfJg</string>
+	<key>GCM_SENDER_ID</key>
+	<string>237759117673</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.doableindia</string>
+	<key>PROJECT_ID</key>
+	<string>doable-india-app-9564b-496310</string>
+	<key>STORAGE_BUCKET</key>
+	<string>doable-india-app-9564b-496310.firebasestorage.app</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:237759117673:ios:0db7c35c97e40d901ce5f8</string>
+</dict>
+</plist>
