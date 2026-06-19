@@ -8,28 +8,27 @@ workflows:
         bundle_identifier: com.doableindia
       vars:
         BUNDLE_ID: com.doableindia
-        XCODE_WORKSPACE: ios/DoAbleIndia.xcworkspace
-        XCODE_SCHEME: DoAbleIndia
+      app_store_connect:
+        api_key: $APP_STORE_CONNECT_PRIVATE_KEY
+        key_id: ZWZHGD737F
+        issuer_id: 908dcf6c-cf7c-4ba7-afa2-5eac59dfef37
     scripts:
       - name: Install dependencies
         script: npm install
-      - name: Set up iOS project
+      - name: Expo prebuild iOS
         script: npx expo prebuild --platform ios --clean
       - name: Install CocoaPods
         script: |
           cd ios
           pod install
-      - name: Build iOS
+      - name: Build iOS IPA
         script: |
           xcode-project build-ipa \
-            --workspace "$XCODE_WORKSPACE" \
-            --scheme "$XCODE_SCHEME"
+            --workspace ios/DoAbleIndia.xcworkspace \
+            --scheme DoAbleIndia
     artifacts:
       - build/ios/ipa/*.ipa
       - /tmp/xcodebuild_logs/*.log
     publishing:
       app_store_connect:
-        api_key: $APP_STORE_CONNECT_PRIVATE_KEY
-        key_id: $APP_STORE_CONNECT_KEY_IDENTIFIER
-        issuer_id: $APP_STORE_CONNECT_ISSUER_ID
         submit_to_testflight: true
