@@ -8,6 +8,8 @@ workflows:
         DEVELOPMENT_TEAM: "5WW267C2PX"
         ARCHIVE_PATH: "/tmp/build/DoAbleIndia.xcarchive"
         IPA_PATH: "/tmp/build/ipa"
+        APP_STORE_CONNECT_KEY_IDENTIFIER: "ZWZHGD737F"
+        APP_STORE_CONNECT_ISSUER_ID: "908dcf6c-cf7c-4ba7-afa2-5eac59dfef37"
     scripts:
       - name: Install dependencies
         script: npm install --legacy-peer-deps
