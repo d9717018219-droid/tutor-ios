@@ -23,9 +23,11 @@ workflows:
           pod install
       - name: Set up Apple API key
         script: |
-          echo "$APP_STORE_CONNECT_PRIVATE_KEY" > /tmp/AuthKey.p8
-          chmod 600 /tmp/AuthKey.p8
           mkdir -p /tmp/build
+          printf '%s' "$APP_STORE_CONNECT_PRIVATE_KEY" > /tmp/AuthKey.p8
+          chmod 600 /tmp/AuthKey.p8
+          echo "Key file size: $(wc -c < /tmp/AuthKey.p8) bytes"
+          head -1 /tmp/AuthKey.p8
       - name: Archive iOS app
         script: |
           WORKSPACE=$(find ios -maxdepth 1 -name "*.xcworkspace" | head -1)
