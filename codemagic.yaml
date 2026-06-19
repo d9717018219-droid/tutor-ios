@@ -23,13 +23,11 @@ workflows:
           pod install
       - name: Build iOS IPA
         script: |
-          # Find the real xcworkspace (NOT nested inside .xcodeproj)
           WORKSPACE=$(find ios -maxdepth 1 -name "*.xcworkspace" | head -1)
           SCHEME=$(find ios -maxdepth 1 -name "*.xcodeproj" | head -1 | xargs basename | sed 's/.xcodeproj//')
           echo "Workspace: $WORKSPACE"
           echo "Scheme: $SCHEME"
 
-          # Create export options plist
           cat > /tmp/export_options.plist << PLIST
           <?xml version="1.0" encoding="UTF-8"?>
           <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
@@ -39,10 +37,8 @@ workflows:
             <string>app-store</string>
             <key>teamID</key>
             <string>5WW267C2PX</string>
-            <key>uploadBitcode</key>
-            <false/>
-            <key>compileBitcode</key>
-            <false/>
+            <key>signingStyle</key>
+            <string>automatic</string>
           </dict>
           </plist>
           PLIST
@@ -50,7 +46,8 @@ workflows:
           xcode-project build-ipa \
             --workspace "$WORKSPACE" \
             --scheme "$SCHEME" \
-            --export-options-plist /tmp/export_options.plist
+            --export-options-plist /tmp/export_options.plist \
+            --archive-xcargs "CODE_SIGN_STYLE=Automatic DEVELOPMENT_TEAM=5WW267C2PX"
     artifacts:
       - build/ios/ipa/*.ipa
       - /tmp/xcodebuild_logs/*.log
