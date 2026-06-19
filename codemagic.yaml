@@ -24,16 +24,8 @@ workflows:
       - name: Set up Apple API key
         script: |
           mkdir -p /tmp/build
-          python3 -c "
-          import os
-          key = os.environ['APP_STORE_CONNECT_PRIVATE_KEY']
-          key = key.replace('\\\\n', '\n').replace('\\n', '\n')
-          with open('/tmp/AuthKey.p8', 'w') as f:
-              f.write(key)
-          "
+          node -e "const k=process.env.APP_STORE_CONNECT_PRIVATE_KEY||''; const f=k.includes('-----')?k:Buffer.from(k,'base64').toString(); require('fs').writeFileSync('/tmp/AuthKey.p8',f.replace(/\\\\n/g,'\n')); console.log('Written',f.length,'bytes, first line:',f.split('\n')[0]);"
           chmod 600 /tmp/AuthKey.p8
-          echo "Key first line: $(head -1 /tmp/AuthKey.p8)"
-          echo "Key lines: $(wc -l < /tmp/AuthKey.p8)"
       - name: Archive iOS app
         script: |
           WORKSPACE=$(find ios -maxdepth 1 -name "*.xcworkspace" | head -1)
