@@ -7,12 +7,12 @@ workflows:
         distribution_type: app_store
         bundle_identifier: com.doableindia
       vars:
-        BUNDLE_ID: com.doableindia
         APP_STORE_CONNECT_KEY_IDENTIFIER: ZWZHGD737F
         APP_STORE_CONNECT_ISSUER_ID: 908dcf6c-cf7c-4ba7-afa2-5eac59dfef37
+        NODE_OPTIONS: "--max-old-space-size=4096"
     scripts:
       - name: Install dependencies
-        script: npm install
+        script: npm install --legacy-peer-deps
       - name: Expo prebuild iOS
         script: npx expo prebuild --platform ios --clean
       - name: Install CocoaPods
