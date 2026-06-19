@@ -6,6 +6,8 @@ workflows:
       vars:
         NODE_OPTIONS: "--max-old-space-size=4096"
         DEVELOPMENT_TEAM: "5WW267C2PX"
+        ARCHIVE_PATH: "/tmp/build/DoAbleIndia.xcarchive"
+        IPA_PATH: "/tmp/build/ipa"
     scripts:
       - name: Install dependencies
         script: npm install --legacy-peer-deps
@@ -21,16 +23,27 @@ workflows:
         script: |
           echo "$APP_STORE_CONNECT_PRIVATE_KEY" > /tmp/AuthKey.p8
           chmod 600 /tmp/AuthKey.p8
-      - name: Build iOS IPA
+          mkdir -p /tmp/build
+      - name: Archive iOS app
         script: |
           WORKSPACE=$(find ios -maxdepth 1 -name "*.xcworkspace" | head -1)
           SCHEME=$(find ios -maxdepth 1 -name "*.xcodeproj" | head -1 | xargs basename | sed 's/.xcodeproj//')
           echo "Workspace: $WORKSPACE  Scheme: $SCHEME"
 
-          export APPLE_API_KEY_PATH=/tmp/AuthKey.p8
-          export APPLE_API_KEY_ID=$APP_STORE_CONNECT_KEY_IDENTIFIER
-          export APPLE_API_ISSUER_ID=$APP_STORE_CONNECT_ISSUER_ID
-
+          xcodebuild \
+            -workspace "$WORKSPACE" \
+            -scheme "$SCHEME" \
+            -configuration Release \
+            -archivePath "$ARCHIVE_PATH" \
+            archive \
+            CODE_SIGN_STYLE=Automatic \
+            DEVELOPMENT_TEAM=$DEVELOPMENT_TEAM \
+            -allowProvisioningUpdates \
+            -authenticationKeyPath /tmp/AuthKey.p8 \
+            -authenticationKeyID "$APP_STORE_CONNECT_KEY_IDENTIFIER" \
+            -authenticationKeyIssuerID "$APP_STORE_CONNECT_ISSUER_ID"
+      - name: Export IPA
+        script: |
           cat > /tmp/export_options.plist << PLIST
           <?xml version="1.0" encoding="UTF-8"?>
           <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
@@ -46,13 +59,17 @@ workflows:
           </plist>
           PLIST
 
-          xcode-project build-ipa \
-            --workspace "$WORKSPACE" \
-            --scheme "$SCHEME" \
-            --export-options-plist /tmp/export_options.plist \
-            --archive-xcargs "CODE_SIGN_STYLE=Automatic DEVELOPMENT_TEAM=5WW267C2PX"
+          xcodebuild \
+            -exportArchive \
+            -archivePath "$ARCHIVE_PATH" \
+            -exportPath "$IPA_PATH" \
+            -exportOptionsPlist /tmp/export_options.plist \
+            -allowProvisioningUpdates \
+            -authenticationKeyPath /tmp/AuthKey.p8 \
+            -authenticationKeyID "$APP_STORE_CONNECT_KEY_IDENTIFIER" \
+            -authenticationKeyIssuerID "$APP_STORE_CONNECT_ISSUER_ID"
     artifacts:
-      - build/ios/ipa/*.ipa
+      - /tmp/build/ipa/*.ipa
       - /tmp/xcodebuild_logs/*.log
     publishing:
       app_store_connect:
