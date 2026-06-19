@@ -1,0 +1,194 @@
+{
+  "project_info": {
+    "project_number": "237759117673",
+    "project_id": "doable-india-app-9564b-496310",
+    "storage_bucket": "doable-india-app-9564b-496310.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:237759117673:android:b57e602d856094b81ce5f8",
+        "android_client_info": {
+          "package_name": "com.doableindia"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "237759117673-1f6i9hqhfp0l3lgqnuve735r5iur9t81.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.doableindia",
+            "certificate_hash": "24cecaf27c33bedc16a0c2e1784cc824c9d0da83"
+          }
+        },
+        {
+          "client_id": "237759117673-t8sj47mgt7c982rdvjhmqlp5n676o0u8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDURPKldQ7cxmoB-zltg8HHj8SW8FlIpa4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "237759117673-t8sj47mgt7c982rdvjhmqlp5n676o0u8.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "237759117673-aa4al51mvfjuppld9udkrv161naer8ci.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.doableindia.teacher"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:237759117673:android:56f1d733d330315c1ce5f8",
+        "android_client_info": {
+          "package_name": "com.doableindia.broadcast"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "237759117673-1uhr8us1nl280luduat7svjtmgts93mf.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.doableindia.broadcast",
+            "certificate_hash": "fc76b1ec2bc20e858d836c0b181354ecb964a5df"
+          }
+        },
+        {
+          "client_id": "237759117673-qap47osjjo3e6g8153dvvci34u7rp7hr.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.doableindia.broadcast",
+            "certificate_hash": "f85332aabff3eb9e52bc72745a2c2cff840867d1"
+          }
+        },
+        {
+          "client_id": "237759117673-t8sj47mgt7c982rdvjhmqlp5n676o0u8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDURPKldQ7cxmoB-zltg8HHj8SW8FlIpa4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "237759117673-t8sj47mgt7c982rdvjhmqlp5n676o0u8.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "237759117673-aa4al51mvfjuppld9udkrv161naer8ci.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.doableindia.teacher"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:237759117673:android:d491644b3e3d974e1ce5f8",
+        "android_client_info": {
+          "package_name": "com.doableindia.parent"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "237759117673-npa47dnhk0vire65atj46bkdslt9n398.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.doableindia.parent",
+            "certificate_hash": "fc76b1ec2bc20e858d836c0b181354ecb964a5df"
+          }
+        },
+        {
+          "client_id": "237759117673-t8sj47mgt7c982rdvjhmqlp5n676o0u8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDURPKldQ7cxmoB-zltg8HHj8SW8FlIpa4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "237759117673-t8sj47mgt7c982rdvjhmqlp5n676o0u8.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "237759117673-aa4al51mvfjuppld9udkrv161naer8ci.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.doableindia.teacher"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:237759117673:android:88cc6796db80663e1ce5f8",
+        "android_client_info": {
+          "package_name": "com.doableindia.teacher"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "237759117673-1dg57uvdnpei10jp4rddvi9plragtn0q.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.doableindia.teacher",
+            "certificate_hash": "fc76b1ec2bc20e858d836c0b181354ecb964a5df"
+          }
+        },
+        {
+          "client_id": "237759117673-t8sj47mgt7c982rdvjhmqlp5n676o0u8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDURPKldQ7cxmoB-zltg8HHj8SW8FlIpa4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "237759117673-t8sj47mgt7c982rdvjhmqlp5n676o0u8.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "237759117673-aa4al51mvfjuppld9udkrv161naer8ci.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.doableindia.teacher"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
